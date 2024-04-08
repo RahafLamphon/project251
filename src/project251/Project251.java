@@ -1,22 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package project251;
 
-import java.util.Scanner;
+import java.util.*;
 
-/**
- *
- * @author rahaf
- */
 public class Project251 {
-
-    /**
-     * @param args the command line arguments
-     */
+    static ArrayList<Patient> PatientList = new ArrayList<Patient>();
     public static void main(String[] args) {
+
         Scanner s=new Scanner(System.in);
          System.out.println("shrooq alsadiq");
          System.out.println("Jehan Meqdad");
@@ -29,6 +19,32 @@ public class Project251 {
          System.out.println("please select a number");
          
          
+         Scanner input = new Scanner(System.in);
+         System.out.println("-----------Hello! Welcome to KAU Therapy clinec-----------");
+         System.out.print("Are you a patient or a Therapist? (write P for patient & T for therapist): ");
+         String Choice = input.next();
+         if (Choice.equalsIgnoreCase("T")){
+             System.out.println("==============Therapist menu==============");
+             System.out.println("1) add new patient & categorise them"); 
+             System.out.print("What is your choice? ");
+             int TChoice = input.nextInt();
+             if (TChoice == 1){
+                 Patient(input, PatientList);
+             }
+         }
+         else if (Choice.equalsIgnoreCase("P")){
+             
+         }
+    }
+    
+    
+    public static void Patient(Scanner input, ArrayList PatientList){
+        System.out.print("Enter patient's Name: ");
+        String Pname = input.next();
+        int id = (int)(Math.random()*10000);
+        Patient Patientinfo = new Patient(id,Pname);
+        Therapist.AddPatient(PatientList ,Patientinfo);
+        //Therapist.AddCategory();
 
     }
     
