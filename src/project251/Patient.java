@@ -19,6 +19,14 @@ public class Patient {
     int password;
    // Catogery catogery;
 
+    public Patient() {
+    }
+
+    public Patient(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     
     //getters
    /* public Catogery getCatogery() {
