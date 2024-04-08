@@ -5,14 +5,17 @@ import java.util.*;
 
 public class Project251 {
     static ArrayList<Patient> PatientList = new ArrayList<Patient>();
+    
     public static void main(String[] args) {
-
-        Scanner s=new Scanner(System.in);
-         System.out.println("shrooq alsadiq");
+        
+        /* System.out.println("shrooq alsadiq");
          System.out.println("Jehan Meqdad");
          System.out.println("Shjoon Nasser Almutairi!");
          System.out.println("Raghad Alzahrani :)");
-         System.out.println("Rahaf Lamphon");
+         System.out.println("Rahaf Lamphon");*/
+        
+        Scanner s=new Scanner(System.in);
+        
          Category t=new Category();
          System.out.println("heres a list of category Diseases");
          System.out.println(t.getCatType());
