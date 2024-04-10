@@ -21,9 +21,10 @@ public class Category {
     public Category() {
     }
 
-    public String getCatName() {
-        return catName;
-    }
+   public Category(String catName) {
+       this.catName = catName;
+        
+   }
 
     public void setCatName(int option) {
     if(option==1)
@@ -43,19 +44,24 @@ public class Category {
     else if(option==8)
         catName="Attention-Deficit Hyperactivity Disorder"; 
     else if(option==9)
-        catName="Insomnia";  
+        catName="Insomnia"; 
+    
     }
 
     public String getCatType() {
-    return catType="1.obsessive compulsive Disorder"+"/n"+
-            "2.Anxiety Disorder"+"/n"+"3.Schizophrenia Disorder"+"/n"+"4.Bipolar Disorder"+"/n"+"5.Major Depressive Disorder"+"/n"+
-            "6.Acute stress disorder"+"/n"+"Posttraumatic stress Disorder"+"/n"+"7.Eating Disorders"+"/n"+"8.Attention-Deficit Hyperactivity Disorder"+
-            "/n"+"9.Insomnia";
+    return catType="1.obsessive compulsive Disorder"+"\n"+
+            "2.Anxiety Disorder"+"\n"+"3.Schizophrenia Disorder"+"\n"+"4.Bipolar Disorder"+"\n"+"5.Major Depressive Disorder"+"\n"+
+            "6.Acute stress disorder"+"\n"+"Posttraumatic stress Disorder"+"\n"+"7.Eating Disorders"+"\n"+"8.Attention-Deficit Hyperactivity Disorder"+
+            "\n"+"9.Insomnia";
         
     }
 
     public void setCatType(String catType) {
         this.catType = catType;
+    }
+
+    public String getCatName() {
+        return catName;
     }
 
     @Override

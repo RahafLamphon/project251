@@ -5,6 +5,8 @@ import java.util.*;
 
 public class Project251 {
     static ArrayList<Patient> PatientList = new ArrayList<Patient>();
+     static ArrayList<Category> categoryList = new ArrayList<Category>();
+     static String name;
     
     public static void main(String[] args) {
         
@@ -32,7 +34,7 @@ public class Project251 {
              System.out.print("What is your choice? ");
              int TChoice = input.nextInt();
              if (TChoice == 1){
-                 Patient(input, PatientList);
+                  Patient(input,PatientList,categoryList);
              }
          }
          else if (Choice.equalsIgnoreCase("P")){
@@ -41,14 +43,21 @@ public class Project251 {
     }
     
     
-    public static void Patient(Scanner input, ArrayList PatientList){
+    public static void Patient(Scanner input, ArrayList<Patient> PatientList, ArrayList<Category> categoryList){
         System.out.print("Enter patient's Name: ");
         String Pname = input.next();
         int id = (int)(Math.random()*10000);
         Patient Patientinfo = new Patient(id,Pname);
         Therapist.AddPatient(PatientList ,Patientinfo);
-        //Therapist.AddCategory();
-
+        
+          Category t=new Category(name);
+         System.out.println("heres a list of category Diseases");
+         System.out.println(t.getCatType());
+         System.out.print("please select a number: ");
+     
+         int Ptype = input.nextInt();
+         t.setCatName(Ptype);
+        Therapist.AddCategory(categoryList,t,id,Pname);
     }
     
 }
