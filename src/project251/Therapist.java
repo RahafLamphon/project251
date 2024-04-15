@@ -17,7 +17,7 @@ public class Therapist {
     }
       public static void AddCategory(ArrayList<Category> CL, Category PC, int id, String name){
        Patient p = new Patient(id, name);
-       //Category c = new Category(catname);
+    
        CL.add(PC);
         System.out.println("Patient with the name " +p.getName() + " & ID " + p.getId() +
                 " and his category (" +PC.getCatName() + ") was addd successfully.");
