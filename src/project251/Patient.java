@@ -73,6 +73,6 @@ public class Patient {
     
    @Override
     public String toString() {
-        return "Patient:\n" + "id=" + id + "\nname=" + name + "\ncatogery=" + PCategory.getCatName();
+        return "Patient:\n" + "id=" + id + " ,name=" + name + " ,catogery=" + PCategory.getCatName();
     }
 }

@@ -13,7 +13,7 @@ public class Therapist {
     public static void AddPatient(ArrayList PL, Patient PI){
         PL.add(PI);
         System.out.print("Patient with the name "+PI.name+" & ID "+PI.id);
-        System.out.println(" Was Added successfully");
+        System.out.println(" Was Added successfully\n");
     }
       public static void AddCategory(ArrayList<Category> CL, Category PC, int id, String name,ArrayList<Patient> PatientList){
         Patient newP=null;
@@ -24,7 +24,7 @@ public class Therapist {
                 newP=p;
                 break;}  }
        
-        System.out.println( newP.toString() + ") was addd successfully.");
+        System.out.println( newP.toString() + " was addd successfully.");
         
         /*
          CL.add(PC);
