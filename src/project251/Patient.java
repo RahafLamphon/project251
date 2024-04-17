@@ -17,7 +17,7 @@ public class Patient {
     String name;
     String username;
     int password;
-   // Catogery catogery;
+    Category PCategory;
 
     public Patient() {
     }
@@ -26,13 +26,15 @@ public class Patient {
         this.id = id;
         this.name = name;
     }
+    
+    
+  
 
-    
+
     //getters
-   /* public Catogery getCatogery() {
-        return catogery;
-    }*/
-    
+    public Category getPCategory() {    
+        return PCategory;
+    }
     public int getId() {
         return id;
     }
@@ -45,9 +47,9 @@ public class Patient {
         return username;
     }
     //setters
-  /*  public void setCatogery(Catogery catogery) {
-        this.catogery = catogery;
-    }*/
+    public void setPCategory(Category PCategory) {
+        this.PCategory = PCategory;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -69,8 +71,8 @@ public class Patient {
         this.password = password;
     }
     
-   /* @Override
+   @Override
     public String toString() {
-        return "Patient:\n" + "id=" + id + "\nname=" + name + "\ncatogery=" + catogery ;
-    }*/
+        return "Patient:\n" + "id=" + id + "\nname=" + name + "\ncatogery=" + PCategory.getCatName();
+    }
 }

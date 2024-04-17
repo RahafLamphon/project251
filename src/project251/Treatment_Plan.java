@@ -11,13 +11,21 @@ package project251;
 public class Treatment_Plan {
     String TreatmentPlan_Name;
     int treatmentPlan_ID;
-    // sessions array
+    Session sessions[];
     Category categoryType;
 
     public Treatment_Plan(String TreatmentPlan_Name, int treatmentPlan_ID, Category categoryType) {
         this.TreatmentPlan_Name = TreatmentPlan_Name;
         this.treatmentPlan_ID = treatmentPlan_ID;
         this.categoryType = categoryType;
+    }
+
+    public Session[] getSessions() {
+        return sessions;
+    }
+
+    public void setSessions(Session[] sessions) {
+        this.sessions = sessions;
     }
 
     public String getTreatmentPlan_Name() {
