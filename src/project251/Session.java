@@ -17,6 +17,22 @@ public class Session {
         this.SessionNumber = SessionNumber;
         this.TreatmentPlanName = TreatmentPlanName;
     }
+
+   public int getSessionNumber() {
+        return SessionNumber;
+    }
+
+    public void setSessionNumber(int SessionNumber) {
+        this.SessionNumber = SessionNumber;
+    }
+
+    public String getTreatmentPlanName() {
+        return TreatmentPlanName;
+    }
+
+    public void setTreatmentPlanName(String TreatmentPlanName) {
+        this.TreatmentPlanName = TreatmentPlanName;
+    }
    
    
 }
