@@ -46,7 +46,7 @@ public class Project251 {
             do{
                 //menu 
                 System.out.println("==============Therapist menu==============");
-                System.out.println("1) add new patient & categorise them"); 
+                System.out.println("1) add new patient & categorise them");
                 System.out.println("5) exit");
                 System.out.print("What is your choice? ");
                 TChoice = input.nextInt();
