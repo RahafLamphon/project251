@@ -29,11 +29,12 @@ public class Project251 {
         
          
         Scanner input = new Scanner(System.in);
-        System.out.println("-----------Hello! Welcome to KAU Therapy clinec-----------");
+        System.out.println("-----------Hello! Welcome to KAU Therapy clinic-----------");
+        while(true){
         System.out.print("Are you a patient or a Therapist? (write P for patient & T for therapist): ");
         String Choice = input.next();
        
-       
+        
         if (Choice.equalsIgnoreCase("T")){
             
            //log in  
@@ -48,13 +49,15 @@ public class Project251 {
                 System.out.println("==============Therapist menu==============");
                 System.out.println("1) add new patient & categorise them");
                 System.out.println("5) exit");
+                System.out.println("6) quit (exit they system)");
                 System.out.print("What is your choice? ");
                 TChoice = input.nextInt();
              
             if (TChoice == 1){
                 Patient(input,PatientList,categoryList,TherapistUser);
             }
-            
+            if (TChoice == 6){
+                System.exit(0);}
             }while( TChoice !=5 );
         }
         else if (Choice.equalsIgnoreCase("P")){
@@ -66,15 +69,18 @@ public class Project251 {
             System.out.println("==============Patient menu==============");
             System.out.println("1) view treatment plan"); 
             System.out.println("5) exit");
+            System.out.println("6) quit (exit they system)");
             System.out.print("What is your choice? "); 
             PChoice = input.nextInt();
             
             if (PChoice == 1){
                   //
             }
+            if (PChoice == 6){
+                System.exit(0);}
             }while(PChoice!=5 );
-         }
-  
+            }
+        }
     }
     
     public static void Patient(Scanner input, ArrayList<Patient> PatientList, ArrayList<Category> categoryList,Therapist TherapistUser){
