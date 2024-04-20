@@ -41,7 +41,7 @@ public class Project251 {
             Therapist TherapistUser=TherapistLogIn (s);
             if(TherapistUser==null) {
                 System.out.println("user not found");
-                System.exit(0);
+                continue;
             }
             int TChoice = 0;
             do{
