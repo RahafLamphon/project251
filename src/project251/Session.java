@@ -5,6 +5,8 @@
  */
 package project251;
 
+import java.util.Date;
+
 /**
  *
  * @author SHROOQAS
@@ -12,6 +14,7 @@ package project251;
 public class Session {
    int SessionNumber;
    String TreatmentPlanName;
+   Date sessiondate;
 
     public Session(int SessionNumber, String TreatmentPlanName) {
         this.SessionNumber = SessionNumber;

@@ -10,12 +10,20 @@ package project251;
  */
 public class Treatment_Plan {
     String TreatmentPlan_Name;
+    String Pname;
     int treatmentPlan_ID;
     Session sessions[];
     Category categoryType;
 
     public Treatment_Plan(String TreatmentPlan_Name, int treatmentPlan_ID, Category categoryType) {
         this.TreatmentPlan_Name = TreatmentPlan_Name;
+        this.treatmentPlan_ID = treatmentPlan_ID;
+        this.categoryType = categoryType;
+    }
+
+    public Treatment_Plan(String TreatmentPlan_Name, String Pname, int treatmentPlan_ID, Category categoryType) {
+        this.TreatmentPlan_Name = TreatmentPlan_Name;
+        this.Pname = Pname;
         this.treatmentPlan_ID = treatmentPlan_ID;
         this.categoryType = categoryType;
     }

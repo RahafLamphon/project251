@@ -37,7 +37,7 @@ public class Project251 {
         if (Choice.equalsIgnoreCase("T")){
             
            //log in  
-            Therapist TherapistUser=TherapistLogIn (s);
+            Therapist TherapistUser=TherapistLogIn(s);
             if(TherapistUser==null) {
                 System.out.println("user not found");
                 System.exit(0);
@@ -47,12 +47,16 @@ public class Project251 {
                 //menu 
                 System.out.println("==============Therapist menu==============");
                 System.out.println("1) add new patient & categorise them");
+                System.out.println("2) add patient Treatment plan       ");
                 System.out.println("5) exit");
                 System.out.print("What is your choice? ");
                 TChoice = input.nextInt();
              
             if (TChoice == 1){
                 Patient(input,PatientList,categoryList,TherapistUser);
+            }
+            if(TChoice==2){
+                AddTreatmentPlan(input,PatientList,categoryList);
             }
             
             }while( TChoice !=5 );
@@ -133,4 +137,26 @@ public class Project251 {
         return null;
      
      }
+
+    private static void AddTreatmentPlan(Scanner input, ArrayList<Patient> PatientList, ArrayList<Category> categoryList) {
+        System.out.println("Enter user Name");
+        String pname = input.next();
+        Category c;
+         System.out.println("Enter plan Name ");
+        // genrating a random id number for the plan
+         int id = (int)(Math.random()*10000);
+         String planName=input.next();
+         
+        for(int i =0;i<PatientList.size();i++){
+           if(pname.equalsIgnoreCase(PatientList.get(i).getName())){
+               System.out.println("Correct Patient name ");
+            c=PatientList.get(i).getPCategory();
+            Treatment_Plan plan=new Treatment_Plan(planName,pname,id,c);
+           }     
+           else{
+               System.out.println("this patient name dose not exist try again"); 
+                break;}
+        }
+     
+    }
 }
