@@ -2,13 +2,14 @@
 package project251;
 
 import java.util.*;
-
+import java.io.*;
 public class Project251 {
     static ArrayList<Patient> PatientList = new ArrayList<Patient>();
     static ArrayList<Category> categoryList = new ArrayList<Category>();
     static ArrayList<Therapist> TherapistList = new ArrayList<Therapist>(); 
+    static ArrayList<Treatment_Plan> Treatment_Plan = new ArrayList<Treatment_Plan>(); 
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         
         /* System.out.println("shrooq alsadiq");
          System.out.println("Jehan Meqdad");
@@ -22,9 +23,8 @@ public class Project251 {
         System.out.println("please select a number");*/
         
         
-        
         TherapistList.add(new Therapist("Haifa"));
-        
+     
         Scanner s=new Scanner(System.in);
         
          
@@ -34,7 +34,7 @@ public class Project251 {
         System.out.print("Are you a patient or a Therapist? (write P for patient & T for therapist): ");
         String Choice = input.next();
        
-        
+            
         if (Choice.equalsIgnoreCase("T")){
             
            //log in  
@@ -137,6 +137,13 @@ public class Project251 {
        
      }
         return null;
+     
+     }
+     public static void laodTreatmentPlanDB (Scanner input ){
+     System.out.println("enter your name :");
+     String Pname = input.next();
+     
+    
      
      }
 }
