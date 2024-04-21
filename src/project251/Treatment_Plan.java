@@ -15,6 +15,8 @@ public class Treatment_Plan {
     Session sessions[];
     Category categoryType;
 
+   
+
     public Treatment_Plan(String TreatmentPlan_Name, int treatmentPlan_ID, Category categoryType) {
         this.TreatmentPlan_Name = TreatmentPlan_Name;
         this.treatmentPlan_ID = treatmentPlan_ID;

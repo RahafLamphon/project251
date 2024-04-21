@@ -2,13 +2,15 @@
 package project251;
 
 import java.util.*;
+import java.io.*;
 
 public class Project251 {
     static ArrayList<Patient> PatientList = new ArrayList<Patient>();
     static ArrayList<Category> categoryList = new ArrayList<Category>();
     static ArrayList<Therapist> TherapistList = new ArrayList<Therapist>(); 
-    
-    public static void main(String[] args) {
+    static ArrayList<Treatment_Plan> Treatment_Plan = new ArrayList<Treatment_Plan>(); 
+   public static void main(String[] args) throws FileNotFoundException {
+        
         
         /* System.out.println("shrooq alsadiq");
          System.out.println("Jehan Meqdad");
@@ -21,26 +23,26 @@ public class Project251 {
         System.out.println(t.getCatType());
         System.out.println("please select a number");*/
         
-        
-        
+       
         TherapistList.add(new Therapist("Haifa"));
-        
+     
         Scanner s=new Scanner(System.in);
         
          
         Scanner input = new Scanner(System.in);
-        System.out.println("-----------Hello! Welcome to KAU Therapy clinec-----------");
+        System.out.println("-----------Hello! Welcome to KAU Therapy clinic-----------");
+        while(true){
         System.out.print("Are you a patient or a Therapist? (write P for patient & T for therapist): ");
         String Choice = input.next();
        
-       
+            
         if (Choice.equalsIgnoreCase("T")){
             
            //log in  
             Therapist TherapistUser=TherapistLogIn(s);
             if(TherapistUser==null) {
                 System.out.println("user not found");
-                System.exit(0);
+                continue;
             }
             int TChoice = 0;
             do{
@@ -49,6 +51,7 @@ public class Project251 {
                 System.out.println("1) add new patient & categorise them");
                 System.out.println("2) add patient Treatment plan       ");
                 System.out.println("5) exit");
+                System.out.println("6) quit (exit they system)");
                 System.out.print("What is your choice? ");
                 TChoice = input.nextInt();
              
@@ -58,7 +61,8 @@ public class Project251 {
             if(TChoice==2){
                 AddTreatmentPlan(input,PatientList,categoryList);
             }
-            
+            if (TChoice == 6){
+                System.exit(0);}
             }while( TChoice !=5 );
         }
         else if (Choice.equalsIgnoreCase("P")){
@@ -70,18 +74,22 @@ public class Project251 {
             System.out.println("==============Patient menu==============");
             System.out.println("1) view treatment plan"); 
             System.out.println("5) exit");
+            System.out.println("6) quit (exit they system)");
             System.out.print("What is your choice? "); 
             PChoice = input.nextInt();
             
             if (PChoice == 1){
                   //
             }
+            if (PChoice == 6){
+                System.exit(0);}
             }while(PChoice!=5 );
-         }
+            }
   
+        }
     }
     
-    public static void Patient(Scanner input, ArrayList<Patient> PatientList, ArrayList<Category> categoryList,Therapist TherapistUser){
+    public static void Patient(Scanner input, ArrayList<Patient> PatientList, ArrayList<Category> categoryList,Therapist TherapistUser) throws FileNotFoundException{
         
         //add new patient
         System.out.print("Enter patient's Name: ");
@@ -100,13 +108,15 @@ public class Project251 {
         System.out.print("please select a number: ");
         int Ptype = input.nextInt();
         t.setCatName(Ptype);
-        
+      
         TherapistUser.AddCategory(categoryList,t,id,Pname,PatientList);
+        savePatientInfoToFile("patient_info.txt");
+      
     }
     
     public static Therapist TherapistLogIn (Scanner input ){
         
-     System.out.println("enter your name :");
+     System.out.print("enter your name :");
      
      String THname = input.next();
      for (Therapist th : TherapistList ){
@@ -137,6 +147,29 @@ public class Project251 {
         return null;
      
      }
+     public static void laodTreatmentPlanDB (Scanner input ){
+     System.out.println("enter your name :");
+     String Pname = input.next();
+     
+    
+     
+     }
+     public static void savePatientInfoToFile(String filename) throws FileNotFoundException {
+        PrintWriter writer = new PrintWriter(new File(filename));
+        
+        // Write each patient's information to the file
+        for (Patient patient : PatientList) {
+            writer.println("Patient Name: " + patient.name);
+            writer.println("Patient ID: " + patient.id);
+            writer.println("Therapist: " + "Haifa");
+            writer.println("Category: " + patient.PCategory);
+            writer.println(); // Add a blank line for separation
+        }
+        
+        // Close the PrintWriter
+        writer.close();
+        
+        System.out.println("Patient information saved to " + filename);}
 
     private static void AddTreatmentPlan(Scanner input, ArrayList<Patient> PatientList, ArrayList<Category> categoryList) {
         System.out.println("Enter user Name");
