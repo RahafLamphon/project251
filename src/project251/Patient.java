@@ -18,6 +18,7 @@ public class Patient {
     String username;
     int password;
     Category PCategory;
+    Treatment_Plan plan;
 
     public Patient() {
     }
@@ -25,6 +26,14 @@ public class Patient {
     public Patient(int id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Treatment_Plan getPlan() {
+        return plan;
+    }
+
+    public void setPlan(Treatment_Plan plan) {
+        this.plan = plan;
     }
     
     

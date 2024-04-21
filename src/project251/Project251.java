@@ -152,6 +152,7 @@ public class Project251 {
                System.out.println("Correct Patient name ");
             c=PatientList.get(i).getPCategory();
             Treatment_Plan plan=new Treatment_Plan(planName,pname,id,c);
+            PatientList.get(i).setPlan(plan);
            }     
            else{
                System.out.println("this patient name dose not exist try again"); 
