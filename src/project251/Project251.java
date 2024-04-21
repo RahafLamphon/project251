@@ -3,13 +3,13 @@ package project251;
 
 import java.util.*;
 import java.io.*;
+
 public class Project251 {
     static ArrayList<Patient> PatientList = new ArrayList<Patient>();
     static ArrayList<Category> categoryList = new ArrayList<Category>();
     static ArrayList<Therapist> TherapistList = new ArrayList<Therapist>(); 
     static ArrayList<Treatment_Plan> Treatment_Plan = new ArrayList<Treatment_Plan>(); 
-    
-    public static void main(String[] args) throws FileNotFoundException {
+   public static void main(String[] args) throws FileNotFoundException {
         
         /* System.out.println("shrooq alsadiq");
          System.out.println("Jehan Meqdad");
@@ -22,7 +22,7 @@ public class Project251 {
         System.out.println(t.getCatType());
         System.out.println("please select a number");*/
         
-        
+       
         TherapistList.add(new Therapist("Haifa"));
      
         Scanner s=new Scanner(System.in);
@@ -83,7 +83,7 @@ public class Project251 {
         }
     }
     
-    public static void Patient(Scanner input, ArrayList<Patient> PatientList, ArrayList<Category> categoryList,Therapist TherapistUser){
+    public static void Patient(Scanner input, ArrayList<Patient> PatientList, ArrayList<Category> categoryList,Therapist TherapistUser) throws FileNotFoundException{
         
         //add new patient
         System.out.print("Enter patient's Name: ");
@@ -102,13 +102,15 @@ public class Project251 {
         System.out.print("please select a number: ");
         int Ptype = input.nextInt();
         t.setCatName(Ptype);
-        
+      
         TherapistUser.AddCategory(categoryList,t,id,Pname,PatientList);
+        savePatientInfoToFile("patient_info.txt");
+      
     }
     
     public static Therapist TherapistLogIn (Scanner input ){
         
-     System.out.println("enter your name :");
+     System.out.print("enter your name :");
      
      String THname = input.next();
      for (Therapist th : TherapistList ){
@@ -146,4 +148,21 @@ public class Project251 {
     
      
      }
+     public static void savePatientInfoToFile(String filename) throws FileNotFoundException {
+        PrintWriter writer = new PrintWriter(new File(filename));
+        
+        // Write each patient's information to the file
+        for (Patient patient : PatientList) {
+            writer.println("Patient Name: " + patient.name);
+            writer.println("Patient ID: " + patient.id);
+            writer.println("Therapist: " + "Haifa");
+            writer.println("Category: " + patient.PCategory);
+            writer.println(); // Add a blank line for separation
+        }
+        
+        // Close the PrintWriter
+        writer.close();
+        
+        System.out.println("Patient information saved to " + filename);
+    }
 }
