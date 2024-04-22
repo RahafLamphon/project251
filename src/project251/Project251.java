@@ -50,6 +50,7 @@ public class Project251 {
                 System.out.println("==============Therapist menu==============");
                 System.out.println("1) add new patient & categorise them");
                 System.out.println("2) add patient Treatment plan       ");
+                System.out.println("3) Mark the end of the session");
                 System.out.println("5) exit");
                 System.out.println("6) quit (exit they system)");
                 System.out.print("What is your choice? ");
@@ -58,10 +59,13 @@ public class Project251 {
             if (TChoice == 1){
                 Patient(input,PatientList,categoryList,TherapistUser);
             }
-            if(TChoice==2){
+            else if(TChoice==2){
                 AddTreatmentPlan(input,PatientList,categoryList);
             }
-            if (TChoice == 6){
+            else if(TChoice==3){
+                MarkSessionEnd(input, PatientList, Treatment_Plan);
+            }
+            else if (TChoice == 6){
                 System.exit(0);}
             }while( TChoice !=5 );
         }
@@ -193,4 +197,22 @@ public class Project251 {
         }
      
     }
+    public static void MarkSessionEnd(Scanner input, ArrayList<Patient> PatientList,ArrayList<Treatment_Plan> Treatment_Plan){
+        System.out.println("Enter user Name");
+        String pname = input.next();
+        for(int i =0;i<PatientList.size();i++){
+           if(pname.equalsIgnoreCase(PatientList.get(i).getName())){
+               System.out.println("Correct Patient name ");
+               System.out.print("Choose the session number: ");
+               int SNumber = input.nextInt();
+               if (SNumber > PatientList.get(i).plan.sessions.length)
+               Therapist.MarkSessionEnd(PatientList.get(i).plan.sessions[SNumber]);
+           }     
+           else{
+               System.out.println("this patient name dose not exist try again"); 
+                break;}
+        }
+    }
+
+    
 }

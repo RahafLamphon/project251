@@ -5,7 +5,7 @@ public class Exercise {
     
     String ContentOfEx;
     String AnswerOfEx;
-    Boolean availability;
+    public static Boolean availability;
 
     public Exercise(String ContentOfEx, String AnswerOfEx, Boolean availability) {
         this.ContentOfEx = ContentOfEx;
