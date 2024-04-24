@@ -7,6 +7,11 @@ public class Exercise {
     String AnswerOfEx;
     public static Boolean availability;
 
+    public Exercise(String ContentOfEx) {
+        this.ContentOfEx = ContentOfEx;
+    }
+    
+
     public Exercise(String ContentOfEx, String AnswerOfEx, Boolean availability) {
         this.ContentOfEx = ContentOfEx;
         this.AnswerOfEx = AnswerOfEx;

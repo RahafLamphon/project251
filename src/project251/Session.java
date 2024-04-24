@@ -15,6 +15,7 @@ public class Session {
    int SessionNumber;
    String TreatmentPlanName;
    Date sessiondate;
+   Exercise SessionExercise;
 
     public Session(int SessionNumber, String TreatmentPlanName) {
         this.SessionNumber = SessionNumber;
@@ -35,6 +36,14 @@ public class Session {
 
     public void setTreatmentPlanName(String TreatmentPlanName) {
         this.TreatmentPlanName = TreatmentPlanName;
+    }
+
+    public Exercise getSessionExercise() {
+        return SessionExercise;
+    }
+
+    public void setSessionExercise(Exercise SessionExercise) {
+        this.SessionExercise = SessionExercise;
     }
 
     @Override

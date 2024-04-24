@@ -8,7 +8,7 @@ public class Project251 {
     static ArrayList<Patient> PatientList = new ArrayList<Patient>();
     static ArrayList<Category> categoryList = new ArrayList<Category>();
     static ArrayList<Therapist> TherapistList = new ArrayList<Therapist>(); 
-    static ArrayList<Treatment_Plan> Treatment_Plan = new ArrayList<Treatment_Plan>(); 
+    static ArrayList<Treatment_Plan> Treatment_Planlist = new ArrayList<Treatment_Plan>(); 
    public static void main(String[] args) throws FileNotFoundException {
         
         
@@ -63,7 +63,7 @@ public class Project251 {
                 AddTreatmentPlan(input,PatientList,categoryList);
             }
             else if(TChoice==3){
-                MarkSessionEnd(input, PatientList, Treatment_Plan);
+                MarkSessionEnd(input, PatientList, Treatment_Planlist);
             }
             else if (TChoice == 6){
                 System.exit(0);}
@@ -151,18 +151,21 @@ public class Project251 {
         return null;
      
      }
-     public static void laodTreatmentPlanDB ( ) throws FileNotFoundException{
-      File TP = new File("treatmentPlan.txt");
+    public static void laodTreatmentPlanDB ( ) throws FileNotFoundException{
+        
+        File TP = new File("treatmentPlan.txt");
+        
         if(!TP.exists()) {
             
             System.out.println("please select a number");
             System.exit(0);
         }
+        
         Scanner RTP = new Scanner(TP);
-         String TPName="";
-         while(RTP.hasNext()){
+        String TPName="";
+        while(RTP.hasNext()){
             
-           if(RTP.next().equalsIgnoreCase("treatmentPlan")){ 
+            if(RTP.next().equalsIgnoreCase("treatmentPlan")){ 
               
               
               
@@ -177,7 +180,7 @@ public class Project251 {
                 
                 for(int r = 0;r < sessionNum && RTP.next().equalsIgnoreCase("session")  ;r++){
                   
-                   String exersiceContent="";
+                    String exersiceContent="";
                     int sessionID = RTP.nextInt(); 
                    
                     sessions [r] =new Session(sessionID,TPName);
@@ -192,20 +195,20 @@ public class Project251 {
                         if(RTP.hasNext("treatmentPlan"))break;
                         if(!RTP.hasNext())break;
                         
-                        
+                        exersiceContent= exersiceContent + RTP.nextLine()+"\n";
                        
-                         exersiceContent= exersiceContent + RTP.nextLine()+"\n";
-                       
-                       
-                       // exersice ex = new exersice(exersiceContent);
+                        Exercise ex = new  Exercise(exersiceContent);
+                        sessions [r].setSessionExercise(ex);
                     }    
                  
-                    
+                    newTP.setSessions(sessions);
                }
+               Treatment_Planlist.add(newTP);
        
-           }}
+           }
+        }
      
-     }
+    }
      public static void savePatientInfoToFile(String filename) throws FileNotFoundException {
         PrintWriter writer = new PrintWriter(new File(filename));
         
@@ -245,6 +248,8 @@ public class Project251 {
         }
      
     }
+    
+    
     public static void MarkSessionEnd(Scanner input, ArrayList<Patient> PatientList,ArrayList<Treatment_Plan> Treatment_Plan){
         System.out.println("Enter user Name");
         String pname = input.next();
