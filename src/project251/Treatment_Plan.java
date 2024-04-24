@@ -15,6 +15,11 @@ public class Treatment_Plan {
     Session sessions[];
     Category categoryType;
 
+    public Treatment_Plan(String TreatmentPlan_Name, int treatmentPlan_ID) {
+        this.TreatmentPlan_Name = TreatmentPlan_Name;
+        this.treatmentPlan_ID = treatmentPlan_ID;
+    }
+
    
 
     public Treatment_Plan(String TreatmentPlan_Name, int treatmentPlan_ID, Category categoryType) {
@@ -61,6 +66,13 @@ public class Treatment_Plan {
     public void setCategoryType(Category categoryType) {
         this.categoryType = categoryType;
     }
+
+    @Override
+    public String toString() {
+        return "Treatment_Plan{" + "TreatmentPlan_Name=" + TreatmentPlan_Name + ", Pname=" + Pname + ", treatmentPlan_ID=" + treatmentPlan_ID + ", categoryType=" + categoryType + '}';
+    }
+
+ 
     
     
 }

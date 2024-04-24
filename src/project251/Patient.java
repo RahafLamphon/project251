@@ -81,7 +81,9 @@ public class Patient {
     }
     
    @Override
+
     public String toString() {
-        return "Patient:\n" + "id=" + id + " ,name=" + name + " ,catogery=" + PCategory.getCatName();
+        return "Patient{" + "id=" + id + ", name=" + name + ", username=" + username + ", password=" + password + ", PCategory=" + PCategory + ", plan=" + plan + '}';
     }
+    
 }

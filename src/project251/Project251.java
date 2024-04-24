@@ -23,7 +23,7 @@ public class Project251 {
         System.out.println(t.getCatType());
         System.out.println("please select a number");*/
         
-       
+       laodTreatmentPlanDB ( ) ;
         TherapistList.add(new Therapist("Haifa"));
      
         Scanner s=new Scanner(System.in);
@@ -151,11 +151,59 @@ public class Project251 {
         return null;
      
      }
-     public static void laodTreatmentPlanDB (Scanner input ){
-     System.out.println("enter your name :");
-     String Pname = input.next();
-     
-    
+     public static void laodTreatmentPlanDB ( ) throws FileNotFoundException{
+      File TP = new File("treatmentPlan.txt");
+        if(!TP.exists()) {
+            
+            System.out.println("please select a number");
+            System.exit(0);
+        }
+        Scanner RTP = new Scanner(TP);
+         String TPName="";
+         while(RTP.hasNext()){
+            
+           if(RTP.next().equalsIgnoreCase("treatmentPlan")){ 
+              
+              
+              
+              TPName = RTP.nextLine();
+              
+              
+              Treatment_Plan newTP = new Treatment_Plan(TPName,(int)(Math.random()*10000));
+              int sessionNum = RTP.nextInt();
+              
+              Session[] sessions = new Session[sessionNum];
+              
+                
+                for(int r = 0;r < sessionNum && RTP.next().equalsIgnoreCase("session")  ;r++){
+                  
+                   String exersiceContent="";
+                    int sessionID = RTP.nextInt(); 
+                   
+                    sessions [r] =new Session(sessionID,TPName);
+                    
+                    
+                    RTP.nextLine();
+                   
+                     
+                    while(true){
+                        
+                        if(RTP.hasNext("Session")) break;
+                        if(RTP.hasNext("treatmentPlan"))break;
+                        if(!RTP.hasNext())break;
+                        
+                        
+                       
+                         exersiceContent= exersiceContent + RTP.nextLine()+"\n";
+                       
+                       
+                       // exersice ex = new exersice(exersiceContent);
+                    }    
+                 
+                    
+               }
+       
+           }}
      
      }
      public static void savePatientInfoToFile(String filename) throws FileNotFoundException {

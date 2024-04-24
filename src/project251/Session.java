@@ -36,6 +36,11 @@ public class Session {
     public void setTreatmentPlanName(String TreatmentPlanName) {
         this.TreatmentPlanName = TreatmentPlanName;
     }
+
+    @Override
+    public String toString() {
+        return "Session{" + "SessionNumber=" + SessionNumber + ", TreatmentPlanName=" + TreatmentPlanName + ", sessiondate=" + sessiondate + '}';
+    }
    
    
 }
