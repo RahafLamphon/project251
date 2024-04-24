@@ -35,7 +35,9 @@ public class Patient {
     public void setPlan(Treatment_Plan plan) {
         this.plan = plan;
     }
-    
+    public void showTPlan() {
+        System.out.println( plan.toString());
+    }
     
   
 

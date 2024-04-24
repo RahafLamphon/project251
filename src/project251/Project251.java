@@ -60,7 +60,8 @@ public class Project251 {
                 Patient(input,PatientList,categoryList,TherapistUser);
             }
             else if(TChoice==2){
-                AddTreatmentPlan(input,PatientList,categoryList);
+                //AddTreatmentPlan(input,PatientList,categoryList);
+                AddTreatmentPlan2(input,PatientList,categoryList);
             }
             else if(TChoice==3){
                 MarkSessionEnd(input, PatientList, Treatment_Planlist);
@@ -70,6 +71,13 @@ public class Project251 {
             }while( TChoice !=5 );
         }
         else if (Choice.equalsIgnoreCase("P")){
+             Patient PatientUser=PatientLogIn(s);
+            
+            if(PatientUser==null) {
+                
+                System.out.println("user not found");
+                continue;
+            }
             int PChoice = 0;
             
             
@@ -83,7 +91,7 @@ public class Project251 {
             PChoice = input.nextInt();
             
             if (PChoice == 1){
-                  //
+                PatientUser.showTPlan();
             }
             if (PChoice == 6){
                 System.exit(0);}
@@ -249,7 +257,62 @@ public class Project251 {
      
     }
     
-    
+     private static void AddTreatmentPlan2(Scanner input, ArrayList<Patient> PatientList, ArrayList<Category> categoryList) {
+        System.out.println("Enter user Name");
+        String pname = input.next();
+        Category c;
+       
+        for(int i =0;i<PatientList.size();i++){
+            
+            if(pname.equalsIgnoreCase(PatientList.get(i).getName())){
+               System.out.println("Correct Patient name ");
+               c=PatientList.get(i).getPCategory();
+                Category t=new Category();
+               System.out.println("heres a list of category Diseases");
+               System.out.println(t.getCatType());
+        
+               System.out.print("please select a number: ");
+               int option = input.nextInt();
+               String TPName ="";
+               
+               if(option==1)
+                    TPName=" obsessive compulsive Disorder";
+                else if(option==2)
+                    TPName=" Anxiety Disorder";
+                else if(option==3)
+                    TPName=" Schizophrenia Disorder";
+                else if(option==4)
+                    TPName=" Bipolar Disorder"; 
+                else if(option==5)
+                    TPName=" Major Depressive Disorder"; 
+                else if(option==6)
+                    TPName=" Acute stress Disorder"; 
+                else if(option==7)
+                    TPName=" Eating Disorders"; 
+                else if(option==8)
+                    TPName=" Attention-Deficit Hyperactivity Disorder"; 
+                else if(option==9)
+                    TPName=" Insomnia"; 
+               
+                for(int p =0;p<Treatment_Planlist.size();p++){
+                    
+                    if(TPName.equalsIgnoreCase(Treatment_Planlist.get(p).getTreatmentPlan_Name())) { 
+                        c=PatientList.get(i).getPCategory();
+                        Treatment_Plan plan=Treatment_Planlist.get(p);
+                        plan.setCategoryType(c);
+                        PatientList.get(i).setPlan(plan);
+
+                        
+                        break;} 
+                }
+            
+           }     
+           else{
+               System.out.println("this patient name dose not exist try again"); 
+                break;}
+        }
+     
+    }
     public static void MarkSessionEnd(Scanner input, ArrayList<Patient> PatientList,ArrayList<Treatment_Plan> Treatment_Plan){
         System.out.println("Enter user Name");
         String pname = input.next();
