@@ -35,9 +35,14 @@ public class Therapist {
         System.out.println("Patient with the name " +p.getName() + " & ID " + p.getId() +
                 " and his category (" +PC.getCatName() + ") was addd successfully.");*/
     }
-      public static void MarkSessionEnd(int Session_number){
+        public static void MarkSessionEnd(int Session_number){
           Exercise.availability = true;
           System.out.println("Session ended successfully.");
-      }
-      
+        }
+        
+        public static void updatePatientExercise( Exercise ex, String update){
+         
+            ex.setContentOfEx(update);
+            System.out.println("\nThis is the new content:\n"+ex.getContentOfEx());
+         }
 }

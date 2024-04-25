@@ -41,7 +41,7 @@ public class Session {
     public Exercise getSessionExercise() {
         return SessionExercise;
     }
-
+    
     public void setSessionExercise(Exercise SessionExercise) {
         this.SessionExercise = SessionExercise;
     }

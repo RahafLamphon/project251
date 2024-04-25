@@ -27,10 +27,11 @@ public class Project251 {
         TherapistList.add(new Therapist("Haifa"));
      
         Scanner s=new Scanner(System.in);
-        
-         
+      
         Scanner input = new Scanner(System.in);
         System.out.println("-----------Hello! Welcome to KAU Therapy clinic-----------");
+       
+        
         while(true){
         System.out.print("Are you a patient or a Therapist? (write P for patient & T for therapist): ");
         String Choice = input.next();
@@ -51,6 +52,7 @@ public class Project251 {
                 System.out.println("1) add new patient & categorise them");
                 System.out.println("2) add patient Treatment plan       ");
                 System.out.println("3) Mark the end of the session");
+                System.out.println("4) update the content of the patient's exercise");
                 System.out.println("5) exit");
                 System.out.println("6) quit (exit they system)");
                 System.out.print("What is your choice? ");
@@ -65,6 +67,9 @@ public class Project251 {
             }
             else if(TChoice==3){
                 MarkSessionEnd(input, PatientList, Treatment_Planlist);
+            }
+            else if(TChoice==4){
+               updatePatientExercise(s , PatientList, Treatment_Planlist,TherapistUser);
             }
             else if (TChoice == 6){
                 System.exit(0);}
@@ -258,7 +263,7 @@ public class Project251 {
     }
     
      private static void AddTreatmentPlan2(Scanner input, ArrayList<Patient> PatientList, ArrayList<Category> categoryList) {
-        System.out.println("Enter user Name");
+         System.out.print("Enter patient's Name: ");
         String pname = input.next();
         Category c;
        
@@ -268,7 +273,7 @@ public class Project251 {
                System.out.println("Correct Patient name ");
                c=PatientList.get(i).getPCategory();
                 Category t=new Category();
-               System.out.println("heres a list of category Diseases");
+               System.out.println("heres a list of treatment plans");
                System.out.println(t.getCatType());
         
                System.out.print("please select a number: ");
@@ -314,10 +319,14 @@ public class Project251 {
      
     }
     public static void MarkSessionEnd(Scanner input, ArrayList<Patient> PatientList,ArrayList<Treatment_Plan> Treatment_Plan){
-        System.out.println("Enter user Name");
+        
+        System.out.print("Enter patient's Name: ");
         String pname = input.next();
+        
         for(int i =0;i<PatientList.size();i++){
+            
            if(pname.equalsIgnoreCase(PatientList.get(i).getName())){
+               
                System.out.println("Correct Patient name ");
                System.out.print("Choose the session number: ");
                int SNumber = input.nextInt();
@@ -325,6 +334,48 @@ public class Project251 {
                Therapist.MarkSessionEnd(PatientList.get(i).plan.sessions[SNumber]);
            }     
            else{
+               System.out.println("this patient name dose not exist try again"); 
+                break;}
+        }
+    }
+    
+    public static void updatePatientExercise(Scanner input , ArrayList<Patient> PatientList,ArrayList<Treatment_Plan> Treatment_Plan,Therapist TherapistUser){
+        
+        System.out.print("Enter patient's Name: ");
+        String pname = input.next();
+        
+        for(int i =0;i<PatientList.size();i++){
+            
+           if(pname.equalsIgnoreCase(PatientList.get(i).getName())){
+               
+                System.out.println("Correct Patient name ");
+               
+                System.out.print("Choose the session number: ");
+                int SNumber = input.nextInt();
+                input.nextLine();
+                
+                if (SNumber <= PatientList.get(i).plan.sessions.length){  
+                    
+                    Exercise ex =PatientList.get(i).plan.getSession(SNumber).getSessionExercise();
+                    
+                    System.out.println("\nPateint "+pname+"\n\nSession "+SNumber+" exercise:\n"+ex.getContentOfEx());
+                    System.out.println();
+                    
+                    System.out.println("Enter exercise update: ");
+                    
+                    
+                    String update="";
+                    while (input.hasNextLine()) {
+                        String newLine=input.nextLine();
+                        update = update +"\n"+newLine;
+                        if (newLine.isEmpty())  break; }
+         
+                   
+                   TherapistUser.updatePatientExercise(ex,update);
+                
+                }
+            }     
+            else{
                System.out.println("this patient name dose not exist try again"); 
                 break;}
         }

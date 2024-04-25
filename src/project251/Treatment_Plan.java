@@ -38,6 +38,9 @@ public class Treatment_Plan {
     public Session[] getSessions() {
         return sessions;
     }
+    public Session getSession(int sessionID) {
+        return sessions[sessionID-1];
+    }
 
     public void setSessions(Session[] sessions) {
         this.sessions = sessions;
