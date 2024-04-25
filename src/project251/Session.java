@@ -12,10 +12,10 @@ import java.util.Date;
  * @author SHROOQAS
  */
 public class Session {
-   int SessionNumber;
+   public static int SessionNumber;
    String TreatmentPlanName;
    Date sessiondate;
-   Exercise SessionExercise;
+   public static Exercise SessionExercise;
 
     public Session(int SessionNumber, String TreatmentPlanName) {
         this.SessionNumber = SessionNumber;
@@ -38,7 +38,7 @@ public class Session {
         this.TreatmentPlanName = TreatmentPlanName;
     }
 
-    public Exercise getSessionExercise() {
+    public static Exercise getSessionExercise() {
         return SessionExercise;
     }
     

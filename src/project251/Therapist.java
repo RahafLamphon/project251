@@ -5,9 +5,6 @@ import java.util.*;
 
 public class Therapist {
 
-    static void MarkSessionEnd(Session session) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     String TName;
 
     public Therapist(String TName) {
@@ -35,8 +32,8 @@ public class Therapist {
         System.out.println("Patient with the name " +p.getName() + " & ID " + p.getId() +
                 " and his category (" +PC.getCatName() + ") was addd successfully.");*/
     }
-        public static void MarkSessionEnd(int Session_number){
-          Exercise.availability = true;
+        public static void MarkSessionEnd(Session session){
+          Session.getSessionExercise().availability = true;
           System.out.println("Session ended successfully.");
         }
         

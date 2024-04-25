@@ -324,14 +324,16 @@ public class Project251 {
         String pname = input.next();
         
         for(int i =0;i<PatientList.size();i++){
-            
            if(pname.equalsIgnoreCase(PatientList.get(i).getName())){
                
                System.out.println("Correct Patient name ");
                System.out.print("Choose the session number: ");
                int SNumber = input.nextInt();
-               if (SNumber > PatientList.get(i).plan.sessions.length)
-               Therapist.MarkSessionEnd(PatientList.get(i).plan.sessions[SNumber]);
+               //
+               if (SNumber <= PatientList.get(i).plan.sessions.length)
+                   Therapist.MarkSessionEnd(PatientList.get(i).plan.sessions[SNumber]);
+               else
+                   System.out.println("there is no session with this number");
            }     
            else{
                System.out.println("this patient name dose not exist try again"); 
