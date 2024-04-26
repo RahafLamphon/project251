@@ -19,6 +19,7 @@ public class Exercise {
     }
 
     public String getContentOfEx() {
+    
         return ContentOfEx;
     }
 

@@ -91,6 +91,7 @@ public class Project251 {
             System.out.println("==============Patient menu==============");
             System.out.println("1) view treatment plan"); 
             System.out.println("2) View Homework     ");
+            System.out.println("3) Solve Homework");
             System.out.println("5) exit");
             System.out.println("6) quit (exit the system)");
             System.out.print("What is your choice? "); 
@@ -101,6 +102,9 @@ public class Project251 {
             }
             if (PChoice==2){
                 viewhomework(PatientList,ptname,input, Treatment_Planlist);
+            }
+            if (PChoice==3){
+              solveHomework(PatientList,ptname,input, Treatment_Planlist);  
             }
             if (PChoice == 6){
                 System.exit(0);}
@@ -387,28 +391,55 @@ public class Project251 {
         }
     }
 
-    private static void viewhomework(ArrayList<Patient> PatientList, String ptname,Scanner input,ArrayList<Treatment_Plan> Treatment_Planlist) {
-        System.out.println("Enter Session number");
-        int numSession=input.nextInt();
-        System.out.println("check for session Availabilty");
-        String contnt;
-        for (int i =0;0<PatientList.size();i++){
-            if(ptname.equalsIgnoreCase(PatientList.get(i).getName())){
-                if(PatientList.get(i).plan.getSession(numSession).getSessionExercise().getAvailability());{
-                contnt=PatientList.get(i).plan.getSession(numSession).getSessionExercise().getContentOfEx();
-                 System.out.println("\nPateint "+ptname+"\n\nSession "+numSession+" exercise:\n"+contnt);
-                    System.out.println();
-                
-            }
-                          
-                    System.out.println("\nPateint "+ptname+"\n\nSession "+numSession+" exercise:\n"+contnt);
-                    System.out.println();
-                
+    private static void viewhomework(ArrayList<Patient> PatientList, String ptname, Scanner input, ArrayList<Treatment_Plan> Treatment_Planlist) {
+    System.out.println("Enter Session number");
+    int numSession = input.nextInt();
+    System.out.println("Check for session Availability");
+    String contnt;
+    for (int i = 0; i < PatientList.size(); i++) {
+        if (ptname.equalsIgnoreCase(PatientList.get(i).getName())) {
+            if (PatientList.get(i).plan.getSession(numSession).getSessionExercise().getAvailability()) {
+                contnt = PatientList.get(i).plan.getSession(numSession).getSessionExercise().getContentOfEx();
+                System.out.println("\nPateint " + ptname + "\n\nSession " + numSession + " exercise:\n" + contnt);
+                System.out.println();
+            } else {
+                System.out.println("Session not available for patient " + ptname);
             }
         }
-        
     }
+}
     
 
-    
+    private static void solveHomework(ArrayList<Patient> PatientList, String ptname, Scanner input, ArrayList<Treatment_Plan> Treatment_Planlist) {
+    System.out.println("Enter Session number");
+    int numSession = input.nextInt();
+
+    Patient patient = null;
+    for (Patient p : PatientList) {
+        if (ptname.equalsIgnoreCase(p.getName())) {
+            patient = p;
+            break;
+        }
+    }
+
+    if (patient != null) {
+        if (numSession >= 0 && numSession < patient.plan.sessions.length) {
+            Session session = patient.plan.getSession(numSession);
+            if (session != null && session.getSessionExercise().getAvailability()) {
+                String content = session.getSessionExercise().getContentOfEx();
+                System.out.println("Answer the question of:" + content);
+                // Here, the patient can input their answer
+                String patientAnswer = input.nextLine(); // Clear the buffer
+                patientAnswer = input.nextLine(); // Read the actual answer
+                System.out.println("Dr. Haifa received your answer successfully.");
+            } else {
+                System.out.println("Session not available for patient " + ptname);
+            }
+        } else {
+            System.out.println("Invalid session number.");
+        }
+    } else {
+        System.out.println("Patient not found.");
+    }
+}
 }
