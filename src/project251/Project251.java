@@ -428,9 +428,9 @@ public class Project251 {
             if (session != null && session.getSessionExercise().getAvailability()) {
                 String content = session.getSessionExercise().getContentOfEx();
                 System.out.println("Answer the question of:" + content);
-                // Here, the patient can input their answer
-                String patientAnswer = input.nextLine(); // Clear the buffer
-                patientAnswer = input.nextLine(); // Read the actual answer
+              
+                String patientAnswer = input.nextLine(); 
+                patientAnswer = input.nextLine(); 
                 System.out.println("Dr. Haifa received your answer successfully.");
             } else {
                 System.out.println("Session not available for patient " + ptname);
