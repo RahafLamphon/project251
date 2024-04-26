@@ -84,19 +84,23 @@ public class Project251 {
                 continue;
             }
             int PChoice = 0;
-            
+             String ptname=PatientUser.getName();
             
             do{
             //menu 
             System.out.println("==============Patient menu==============");
             System.out.println("1) view treatment plan"); 
+            System.out.println("2) View Homework     ");
             System.out.println("5) exit");
-            System.out.println("6) quit (exit they system)");
+            System.out.println("6) quit (exit the system)");
             System.out.print("What is your choice? "); 
             PChoice = input.nextInt();
             
             if (PChoice == 1){
                 PatientUser.showTPlan();
+            }
+            if (PChoice==2){
+                viewhomework(PatientList,ptname,input, Treatment_Planlist);
             }
             if (PChoice == 6){
                 System.exit(0);}
@@ -382,6 +386,29 @@ public class Project251 {
                 break;}
         }
     }
+
+    private static void viewhomework(ArrayList<Patient> PatientList, String ptname,Scanner input,ArrayList<Treatment_Plan> Treatment_Planlist) {
+        System.out.println("Enter Session number");
+        int numSession=input.nextInt();
+        System.out.println("check for session Availabilty");
+        String contnt;
+        for (int i =0;0<PatientList.size();i++){
+            if(ptname.equalsIgnoreCase(PatientList.get(i).getName())){
+                if(PatientList.get(i).plan.getSession(numSession).getSessionExercise().getAvailability());{
+                contnt=PatientList.get(i).plan.getSession(numSession).getSessionExercise().getContentOfEx();
+                 System.out.println("\nPateint "+ptname+"\n\nSession "+numSession+" exercise:\n"+contnt);
+                    System.out.println();
+                
+            }
+                          
+                    System.out.println("\nPateint "+ptname+"\n\nSession "+numSession+" exercise:\n"+contnt);
+                    System.out.println();
+                
+            }
+        }
+        
+    }
+    
 
     
 }
