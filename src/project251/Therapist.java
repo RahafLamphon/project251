@@ -42,4 +42,10 @@ public class Therapist {
             ex.setContentOfEx(update);
             System.out.println("\nThis is the new content:\n"+ex.getContentOfEx());
          }
+        public static void AddComment(Exercise exercise){
+            if(exercise.getAnswerOfEx() != null){
+                
+            }
+            
+        }
 }

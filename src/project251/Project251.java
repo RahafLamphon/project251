@@ -442,4 +442,26 @@ public class Project251 {
         System.out.println("Patient not found.");
     }
 }
+    
+    public static void AddComment(ArrayList<Patient> PatientList, String ptname, Scanner input, ArrayList<Treatment_Plan> Treatment_Planlist){
+        System.out.print("Enter patient's Name: ");
+        String pname = input.next();
+        
+        for(int i =0;i<PatientList.size();i++){
+            
+           if(pname.equalsIgnoreCase(PatientList.get(i).getName())){
+               
+                System.out.println("Correct Patient name ");
+               
+                System.out.print("Choose the session number: ");
+                int SNumber = input.nextInt();
+                input.nextLine();
+                
+                if (SNumber <= PatientList.get(i).plan.sessions.length){ //if there is a session with this number 
+                    Exercise sessionEx = PatientList.get(i).plan.sessions[SNumber].getSessionExercise();
+                    Therapist.AddComment(sessionEx);
+                }
+                else
+                    System.out.print("Sorry... This session doesn't exist!");}}
+    }
 }
