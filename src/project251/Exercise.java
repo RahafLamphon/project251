@@ -6,6 +6,7 @@ public class Exercise {
     String ContentOfEx;
     String AnswerOfEx;
     public static Boolean availability;
+    ArrayList<String> Comments = new ArrayList<String>();
 
     public Exercise(String ContentOfEx) {
         this.ContentOfEx = ContentOfEx;
@@ -17,7 +18,13 @@ public class Exercise {
         this.AnswerOfEx = AnswerOfEx;
         this.availability = availability;
     }
-
+    public ArrayList<String> getComments() {
+        return Comments;
+    }
+    
+    public void setComment(String comment) {
+        this.Comments.add(comment);
+    }
     public String getContentOfEx() {
     
         return ContentOfEx;
