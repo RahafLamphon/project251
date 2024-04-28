@@ -43,9 +43,14 @@ public class Therapist {
             System.out.println("\nThis is the new content:\n"+ex.getContentOfEx());
          }
         public static void AddComment(Exercise exercise){
+            String comment= "comment content";
             if(exercise.getAnswerOfEx() != null){
+                System.out.println(comment);
                 
-            }
+            }else{
+                System.out.println("The exercise is not solved !");}
+            
             
         }
+
 }
