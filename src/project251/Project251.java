@@ -53,8 +53,9 @@ public class Project251 {
                 System.out.println("2) add patient Treatment plan       ");
                 System.out.println("3) Mark the end of the session");
                 System.out.println("4) update the content of the patient's exercise");
-                System.out.println("5) exit");
-                System.out.println("6) quit (exit they system)");
+                System.out.println("5) Add comment to patient's exercise");
+                System.out.println("6) exit");
+                System.out.println("7) quit (exit they system)");
                 System.out.print("What is your choice? ");
                 TChoice = input.nextInt();
              
@@ -71,9 +72,12 @@ public class Project251 {
             else if(TChoice==4){
                updatePatientExercise(s , PatientList, Treatment_Planlist,TherapistUser);
             }
-            else if (TChoice == 6){
+            else if(TChoice==5){
+               AddComment(PatientList, input, Treatment_Planlist);
+            }
+            else if (TChoice == 7){
                 System.exit(0);}
-            }while( TChoice !=5 );
+            }while( TChoice !=6 );
         }
         else if (Choice.equalsIgnoreCase("P")){
              Patient PatientUser=PatientLogIn(s);
@@ -443,7 +447,7 @@ public class Project251 {
     }
 }
     
-    public static void AddComment(ArrayList<Patient> PatientList, String ptname, Scanner input, ArrayList<Treatment_Plan> Treatment_Planlist){
+    public static void AddComment(ArrayList<Patient> PatientList, Scanner input, ArrayList<Treatment_Plan> Treatment_Planlist){
         System.out.print("Enter patient's Name: ");
         String pname = input.next();
         
@@ -459,7 +463,7 @@ public class Project251 {
                 
                 if (SNumber <= PatientList.get(i).plan.sessions.length){ //if there is a session with this number 
                     Exercise sessionEx = PatientList.get(i).plan.sessions[SNumber].getSessionExercise();
-                    Therapist.AddComment(sessionEx);
+                    Therapist.AddComment(sessionEx,input);
                 }
                 else
                     System.out.print("Sorry... This session doesn't exist!");}}
