@@ -42,10 +42,12 @@ public class Therapist {
             ex.setContentOfEx(update);
             System.out.println("\nThis is the new content:\n"+ex.getContentOfEx());
          }
-        public static void AddComment(Exercise exercise){
-            String comment= "comment content";
+    
+        public static void AddComment(Exercise exercise, Scanner input){
+            String comment= "";
             if(exercise.getAnswerOfEx() != null){
-                System.out.println(comment);
+                System.out.println("Write your comment:");
+                comment=input.next();
                 
             }else{
                 System.out.println("The exercise is not solved !");}
