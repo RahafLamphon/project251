@@ -1,6 +1,7 @@
 
-package project251;
 
+package project251;
+import java.util.*;
 public class Exercise {
     
     String ContentOfEx;
