@@ -96,6 +96,7 @@ public class Project251 {
             System.out.println("1) view treatment plan"); 
             System.out.println("2) View Homework     ");
             System.out.println("3) Solve Homework");
+            System.out.println("4) view Therapist Comment");
             System.out.println("5) exit");
             System.out.println("6) quit (exit the system)");
             System.out.print("What is your choice? "); 
@@ -110,6 +111,9 @@ public class Project251 {
             if (PChoice==3){
               solveHomework(PatientList,ptname,input, Treatment_Planlist);  
             }
+             if (PChoice==4){
+              ViewComments(PatientList,input);  
+             }
             if (PChoice == 6){
                 System.exit(0);}
             }while(PChoice!=5 );
@@ -468,4 +472,48 @@ public class Project251 {
                 else
                     System.out.print("Sorry... This session doesn't exist!");}}
     }
+    
+public static void ViewComments(ArrayList<Patient> PatientList, Scanner input) {
+    System.out.print("Enter patient's Name: ");
+    String pname = input.next();
+    
+    boolean foundPatient = false;
+    
+    for (Patient patient : PatientList) {
+        if (pname.equalsIgnoreCase(patient.getName())) {
+            foundPatient = true;
+            System.out.println("Correct Patient name ");
+            
+            System.out.print("Choose the session number: ");
+            int sessionNumber = input.nextInt();
+            
+            if (sessionNumber >= 0 && sessionNumber < patient.getPlan().sessions.length) {
+                Session session = patient.getPlan().sessions[sessionNumber];
+                
+                Exercise sessionExercise = session.getSessionExercise();
+                
+                if (sessionExercise != null) {
+                    ArrayList<String> comments = sessionExercise.getComments();
+                    
+                    if (comments != null && !comments.isEmpty()) {
+                        System.out.println("Therapist's comments and opinions for session " + sessionNumber + ":");
+                        for (String comment : comments) {
+                            System.out.println(comment);
+                        }
+                    } else {
+                        System.out.println("There are no comments about this session yet.");
+                    }
+                } else {
+                    System.out.println("No exercise found for this session.");
+                }
+            } else {
+                System.out.println("Invalid session number.");
+            }
+        }
+    }
+    
+    if (!foundPatient) {
+        System.out.println("Patient not found.");
+    }
+}
 }
