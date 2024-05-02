@@ -439,6 +439,7 @@ public class Project251 {
               
                 String patientAnswer = input.nextLine(); 
                 patientAnswer = input.nextLine(); 
+                session.getSessionExercise().setAnswerOfEx(patientAnswer);
                 System.out.println("Dr. Haifa received your answer successfully.");
             } else {
                 System.out.println("Session not available for patient " + ptname);
