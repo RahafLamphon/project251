@@ -16,16 +16,25 @@ public class Therapist {
         System.out.print("Patient with the name "+PI.name+" & ID "+PI.id);
         System.out.println(" Was Added successfully\n");
     }
-      public static void AddCategory(ArrayList<Category> CL, Category PC, int id, String name,ArrayList<Patient> PatientList){
+    
+    public static void AddCategory( Category PC, String name,ArrayList<Patient> PatientList){
         Patient newP=null;
+        if(PC!=null){
+            
         for (Patient p : PatientList ){
          
             if (p.name.equalsIgnoreCase(name)){
+                
                 p.setPCategory(PC);
                 newP=p;
-                break;}  }
-       
+                break;} 
+            
+        }
+        
+        if(newP!=null)
         System.out.println( newP.toString() + " was addd successfully.");
+        }
+        
         
         /*
          CL.add(PC);
