@@ -140,8 +140,6 @@ public class Project251Test {
         ArrayList<Treatment_Plan> Treatment_Plan = null;
         Therapist TherapistUser = null;
         Project251.updatePatientExercise(input, PatientList, Treatment_Plan, TherapistUser);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**

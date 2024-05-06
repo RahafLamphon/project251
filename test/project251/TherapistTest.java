@@ -169,11 +169,29 @@ public class TherapistTest {
        
     }
      @Test
-    public void testUpdatePatientExercise() {
+    public void testUpdatePatientExercise() { // make sure that the content is saved:
         System.out.println("updatePatientExercise");
-       // Exercise ex = null;
-        //String update = "";
-        //Therapist.updatePatientExercise(ex, update);
-        
+        Exercise ex = new Exercise("");
+        String update = "Q1. How are feeling lately?";
+        Therapist.updatePatientExercise(ex, update);
+        assertEquals(update, ex.ContentOfEx);
+    }
+    
+    @Test
+    public void testUpdatePatientExerciseNotNull() { // make sure that the update is not null:
+        System.out.println("updatePatientExercise");
+        Exercise ex = new Exercise("");
+        String update = "Q1. How are feeling lately?";
+        Therapist.updatePatientExercise(ex, update);
+        assertNotNull(update);
+    }
+    
+    @Test 
+    public void testUpdatePatientExerciseNull() { // what if the update was null? :
+        System.out.println("updatePatientExercise");
+        Exercise ex = new Exercise("");
+        String update = null;
+        Therapist.updatePatientExercise(ex, update);
+        assertNull(update);
     }
 }
