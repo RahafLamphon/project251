@@ -18,38 +18,28 @@ public class Therapist {
     }
     
     public static void AddCategory( Category PC, String name,ArrayList<Patient> PatientList){
+        
         Patient newP=null;
         
         if(PC!=null && name != null){
             
-            
             for (Patient p : PatientList ){
          
                 if (p.name.equalsIgnoreCase(name)){
-                
                     p.setPCategory(PC);
                     newP=p;
                     System.out.println( "Category was add successfully");
                      break;
                 } 
             }
+            //patient not found
             if(newP==null) System.out.println( "this patient not exit in the system");
         }
-        else if(PC==null ){
-                System.out.println( "error: Category = null");
-                }
-        else if(name == null){
-                System.out.println( "error: name = null");
-        }
+        //Category = null
+        else if(PC==null )   System.out.println( "error: Category = null");
         
-       
-        
-        
-        
-        /*
-         CL.add(PC);
-        System.out.println("Patient with the name " +p.getName() + " & ID " + p.getId() +
-                " and his category (" +PC.getCatName() + ") was addd successfully.");*/
+        //name = null       
+        else if(name == null)   System.out.println( "error: name = null");
     }
         public static void MarkSessionEnd(Session session){
           Session.getSessionExercise().availability = true;
@@ -67,7 +57,7 @@ public class Therapist {
             if(exercise.getAnswerOfEx() != null){
                 System.out.println("Write your comment:");
                 comment=input.next();
-                
+                exercise.setComment(comment);
             }else{
                 System.out.println("The exercise is not solved !");}
             

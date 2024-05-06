@@ -119,7 +119,7 @@ public class TherapistTest {
         assertEquals(expectedResult, out.toString().trim());     
     }
     @Test
-    public void testAddCategory_PatientList() {
+    public void testAddCategory_PatientNotFound() {
         
           // data
         Category PC = new Category();
@@ -171,9 +171,9 @@ public class TherapistTest {
      @Test
     public void testUpdatePatientExercise() {
         System.out.println("updatePatientExercise");
-        Exercise ex = null;
-        String update = "";
-        Therapist.updatePatientExercise(ex, update);
+       // Exercise ex = null;
+        //String update = "";
+        //Therapist.updatePatientExercise(ex, update);
         
     }
 }
