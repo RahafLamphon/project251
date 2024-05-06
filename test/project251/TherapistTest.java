@@ -5,6 +5,8 @@
  */
 package project251;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 import org.junit.After;
@@ -43,77 +45,101 @@ public class TherapistTest {
     /**
      * Test of AddPatient method, of class Therapist.
      */
-    @Test
-    public void testAddPatient() {
-        System.out.println("AddPatient");
-        ArrayList PL = null;
-        Patient PI = null;
-        Therapist.AddPatient(PL, PI);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
+   
     /**
      * Test of AddCategory method, of class Therapist.
      */
     @Test
+    
     public void testAddCategory() {
-        
-        
-        Category PC =new Category();
+    
+         // data
+        Category PC = new Category();
         PC.setCatName(1);
-        
-        String name = "reeem";
-        
-        ArrayList<Patient> PatientList =new ArrayList<>(); 
-        PatientList.add(new Patient(1234,"reem"));
-        
-        Therapist.AddCategory( PC, name, PatientList);
-        
+    
+        String name = "reem";
+    
+        ArrayList<Patient> PatientList = new ArrayList<>();
+        PatientList.add(new Patient(1234, "reem"));
+    
+        // ByteArrayOutputStream
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        // AddCategory() method
+        Therapist.AddCategory(PC, name, PatientList);
+
+   
+        String expectedResult = "Category was add successfully";
+        assertEquals(expectedResult, out.toString().trim());
     }
     @Test
     public void testAddCategory_categoryNull() {
+   
+         // data
+        Category PC = null;
         
-        
-        Category PC =null;
-        
-        String name = "reeem";
-        
-        ArrayList<Patient> PatientList =new ArrayList<>(); 
-        PatientList.add(new Patient(1234,"reem"));
-        
-        Therapist.AddCategory( PC, name, PatientList);
-        
+        String name = "reem";
+    
+        ArrayList<Patient> PatientList = new ArrayList<>();
+        PatientList.add(new Patient(1234, "reem"));
+    
+        // ByteArrayOutputStream
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        // AddCategory() method
+        Therapist.AddCategory(PC, name, PatientList);
+
+   
+        String expectedResult = "error: Category = null";
+        assertEquals(expectedResult, out.toString().trim());
     }
     @Test
-    public void testAddCategory_NameNUll() {
+    public void testAddCategory_NameNull() {
         
-        
-        Category PC =new Category();
+         // data
+        Category PC = new Category();
         PC.setCatName(1);
         
         String name = null;
-        
-        ArrayList<Patient> PatientList =new ArrayList<>(); 
-        PatientList.add(new Patient(1234,"reem"));
-        
-        Therapist.AddCategory( PC, name, PatientList);
-        
+    
+        ArrayList<Patient> PatientList = new ArrayList<>();
+        PatientList.add(new Patient(1234, "reem"));
+    
+        // ByteArrayOutputStream
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        // AddCategory() method
+        Therapist.AddCategory(PC, name, PatientList);
+
+   
+        String expectedResult = "error: name = null";
+        assertEquals(expectedResult, out.toString().trim());     
     }
     @Test
     public void testAddCategory_PatientList() {
         
-        
-        Category PC =new Category();
+          // data
+        Category PC = new Category();
         PC.setCatName(1);
         
-        String name = null;
+        String name = "reem";
+    
+        ArrayList<Patient> PatientList = new ArrayList<>();
         
-        ArrayList<Patient> PatientList =new ArrayList<>(); 
-        
-        
-        Therapist.AddCategory( PC, name, PatientList);
-        
+    
+        // ByteArrayOutputStream
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+
+        // AddCategory() method
+        Therapist.AddCategory(PC, name, PatientList);
+
+   
+        String expectedResult = "this patient not exit in the system";
+        assertEquals(expectedResult, out.toString().trim());
     }
     /**
      * Test of MarkSessionEnd method, of class Therapist.
@@ -123,22 +149,13 @@ public class TherapistTest {
         System.out.println("MarkSessionEnd");
         Session session = null;
         Therapist.MarkSessionEnd(session);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
      * Test of updatePatientExercise method, of class Therapist.
      */
-    @Test
-    public void testUpdatePatientExercise() {
-        System.out.println("updatePatientExercise");
-        Exercise ex = null;
-        String update = "";
-        Therapist.updatePatientExercise(ex, update);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+   
 
     /**
      * Test of AddComment method, of class Therapist.
@@ -149,8 +166,14 @@ public class TherapistTest {
         Exercise exercise = null;
         Scanner input = null;
         Therapist.AddComment(exercise, input);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
-    
+     @Test
+    public void testUpdatePatientExercise() {
+        System.out.println("updatePatientExercise");
+        Exercise ex = null;
+        String update = "";
+        Therapist.updatePatientExercise(ex, update);
+        
+    }
 }

@@ -19,21 +19,31 @@ public class Therapist {
     
     public static void AddCategory( Category PC, String name,ArrayList<Patient> PatientList){
         Patient newP=null;
-        if(PC!=null){
+        
+        if(PC!=null && name != null){
             
-        for (Patient p : PatientList ){
+            
+            for (Patient p : PatientList ){
          
-            if (p.name.equalsIgnoreCase(name)){
+                if (p.name.equalsIgnoreCase(name)){
                 
-                p.setPCategory(PC);
-                newP=p;
-                break;} 
-            
+                    p.setPCategory(PC);
+                    newP=p;
+                    System.out.println( "Category was add successfully");
+                     break;
+                } 
+            }
+            if(newP==null) System.out.println( "this patient not exit in the system");
+        }
+        else if(PC==null ){
+                System.out.println( "error: Category = null");
+                }
+        else if(name == null){
+                System.out.println( "error: name = null");
         }
         
-        if(newP!=null)
-        System.out.println( newP.toString() + " was addd successfully.");
-        }
+       
+        
         
         
         /*
