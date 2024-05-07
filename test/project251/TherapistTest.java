@@ -161,13 +161,26 @@ public class TherapistTest {
      * Test of AddComment method, of class Therapist.
      */
     @Test
-    public void testAddComment() {
+    public void testAddCommentisnull(){
         System.out.println("AddComment");
-        Exercise exercise = null;
+        Exercise exercise = new  Exercise("") ;
         Scanner input = null;
         Therapist.AddComment(exercise, input);
+        assertNull(input);
        
     }
+        @Test
+     public void testAddCommentisNotnull(){
+        System.out.println("AddComment Not NUll");
+        Exercise exercise = new  Exercise("") ;
+        Scanner input =new Scanner(System.in);
+        Therapist.AddComment(exercise, input);
+        assertNotNull(input);
+       
+    }
+      
+
+    
      @Test
     public void testUpdatePatientExercise() { // make sure that the content is saved:
         System.out.println("updatePatientExercise");
@@ -194,4 +207,6 @@ public class TherapistTest {
         Therapist.updatePatientExercise(ex, update);
         assertNull(update);
     }
+
+    
 }

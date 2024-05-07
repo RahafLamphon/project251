@@ -434,6 +434,7 @@ public class Project251 {
     public static void AddComment(ArrayList<Patient> PatientList, Scanner input, ArrayList<Treatment_Plan> Treatment_Planlist){
         System.out.print("Enter patient's Name: ");
         String pname = input.next();
+        String contentofComme;
         
         for(int i =0;i<PatientList.size();i++){
             
@@ -447,6 +448,7 @@ public class Project251 {
                 
                 if (SNumber <= PatientList.get(i).plan.sessions.length){ //if there is a session with this number 
                     Exercise sessionEx = PatientList.get(i).plan.sessions[SNumber].getSessionExercise();
+                    
                     Therapist.AddComment(sessionEx,input);
                 }
                 else
