@@ -448,7 +448,7 @@ public class Project251 {
                 
                 if (SNumber <= PatientList.get(i).plan.sessions.length){ //if there is a session with this number 
                     Exercise sessionEx = PatientList.get(i).plan.sessions[SNumber].getSessionExercise();
-                    
+                    System.out.println("\nPateint " + pname + "\n\nSession " + SNumber + " exercise:\n" + sessionEx.getContentOfEx()+ " exercise Answer:\n" + sessionEx.getAnswerOfEx());
                     Therapist.AddComment(sessionEx,input);
                 }
                 else
