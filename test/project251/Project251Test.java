@@ -5,6 +5,10 @@
  */
 package project251;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 import org.junit.After;
@@ -168,5 +172,56 @@ public class Project251Test {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+   
+
+ @Test
+    public void testAddTreatmentPlan2() {
+       System.out.println("AddTreatmentPlan2 Test");
+       
+        ArrayList<Patient> PatientList = new ArrayList<>();
+       
+        String inputString = "Raghad"; 
+        InputStream inputStream = new ByteArrayInputStream(inputString.getBytes());
+        Scanner input = new Scanner(inputStream);
+      
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+    
+        Project251.AddTreatmentPlan2(input, PatientList);
+        
+        System.setOut(System.out);
+    
+        String expectedOutput = "Enter patient's Name: ";
+        assertEquals(expectedOutput.trim(), outContent.toString().trim());
+    
+    }
+   
+    @Test
+    public void testAddTreatmentPlan2_NotNull() {
+       
+       System.out.println("AddTreatmentPlan2 Test");
+       
+        ArrayList<Patient> PatientList = new ArrayList<>();
+       
+        String inputString = "Raghad"; 
+        InputStream inputStream = new ByteArrayInputStream(inputString.getBytes());
+        Scanner input = new Scanner(inputStream);
+      
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+    
+        Project251.AddTreatmentPlan2(input, PatientList);
+        
+        System.setOut(System.out);
+    
+        assertNotNull(outContent.toString().trim());
+    }
+
+   
+    
     
 }
+
+
+   

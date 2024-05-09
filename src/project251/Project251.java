@@ -257,7 +257,7 @@ public class Project251 {
 
   
     
-     private static void AddTreatmentPlan2(Scanner input, ArrayList<Patient> PatientList) {
+      static void AddTreatmentPlan2(Scanner input, ArrayList<Patient> PatientList) {
          System.out.print("Enter patient's Name: ");
         String pname = input.next();
         Category c;
@@ -301,7 +301,7 @@ public class Project251 {
                         Treatment_Plan plan=Treatment_Planlist.get(p);
                         plan.setCategoryType(c);
                         PatientList.get(i).setPlan(plan);
-
+                        System.out.println("Category was add successfully");
                         
                         break;} 
                 }

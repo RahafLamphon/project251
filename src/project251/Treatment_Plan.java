@@ -20,7 +20,13 @@ public class Treatment_Plan {
         this.treatmentPlan_ID = treatmentPlan_ID;
     }
 
-   
+    public Treatment_Plan() {
+      
+    }
+
+    public Treatment_Plan(String TreatmentPlan_Name) {
+        this.TreatmentPlan_Name = TreatmentPlan_Name;
+    }
 
     public Treatment_Plan(String TreatmentPlan_Name, int treatmentPlan_ID, Category categoryType) {
         this.TreatmentPlan_Name = TreatmentPlan_Name;
