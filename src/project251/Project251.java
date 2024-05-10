@@ -268,7 +268,7 @@ public class Project251 {
                System.out.println("Correct Patient name ");
                c=PatientList.get(i).getPCategory();
                 Category t=new Category();
-               System.out.println("heres a list of treatment plans");
+               System.out.println("here a list of treatment plans");
                System.out.println(t.getCatType());
         
                System.out.print("please select a number: ");
@@ -301,7 +301,7 @@ public class Project251 {
                         Treatment_Plan plan=Treatment_Planlist.get(p);
                         plan.setCategoryType(c);
                         PatientList.get(i).setPlan(plan);
-                        System.out.println("Category was add successfully");
+                        System.out.println("Treatment paln was add successfully");
                         
                         break;} 
                 }
