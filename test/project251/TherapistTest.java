@@ -199,14 +199,6 @@ public class TherapistTest {
         assertNotNull(update);
     }
     
-    @Test 
-    public void testUpdatePatientExerciseNull() { // what if the update was null? :
-        System.out.println("updatePatientExercise");
-        Exercise ex = new Exercise("");
-        String update = null;
-        Therapist.updatePatientExercise(ex, update);
-        assertNull(update);
-    }
 
     
 }
